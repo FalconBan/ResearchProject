@@ -28,7 +28,7 @@ Testing is an integral part of software development. In recent times, ideologies
 \end{abstract}
 
 \begin{IEEEkeywords}
-TDD (Test Driven Development), BDD (Behaviour Driven Development), GAN (Generative Adversarial Network), NLP (Natural Language Processing), POC (Proof Of Concept)
+TDD (Test Driven Development), BDD (Behaviour Driven Development), GAN (Generative Adversarial Network), NLP (Natural Language Processing), POC (Proof Of Concept), SUT (System Under Test), GUI (Graphical User Interface)
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -163,10 +163,40 @@ Java has many frameworks and solutions supporting the adoption of BDD. Therefore
 
 \section{Test Driven Development: Prelude To BDD}
 In A Comparative Case Study on the Impact of
-Test-Driven Development on Program Design and Test Coverage, it is mentioned that "Test-driven development (TDD) is a programming technique in which the tests are written prior to the source code. It is proposed that TDD is one of the most fundamental practices enabling the development of software in an agile and iterative manner. Both the literature and practice suggest that TDD practice yields
-several benefits. Essentially, it is claimed that TDD leads to an improved software design, which has a dramatic impact on the maintainability and further development of the system."\cite{b6} TDD in actuality is a development technique rather than a testing technique.\cite{b7} The tests are iteratively added throughout the implementation and when the tests pass, the code is refactored to improve its internal structure. This incremental cycle is repeated until all the functionality is implemented.\cite{b8} The idea of TDD was popularized by Beck\cite{b9} in the Extreme Programming (XP) method. Therefore, although TDD seems to have just recently emerged, it has existed for decades; an early reference to the use of TDD features
-in the NASA Project Mercury in the 1960s\cite{b10}. 
-
+Test-Driven Development on Program Design and Test Coverage, it is mentioned that "Test-driven development (TDD) is a programming technique in which the tests are written prior to the source code. It is proposed that TDD is one of the most fundamental practices enabling the development of software in an agile and iterative manner. Both the literature and practice suggest that TDD practice yields several benefits. Essentially, it is claimed that TDD leads to an improved software design, which has a dramatic impact on the maintainability and further development of the system."\cite{b6} TDD in actuality is a development technique rather than a testing technique.\cite{b7} The tests are iteratively added throughout the implementation and when the tests pass, the code is refactored to improve its internal structure. This incremental cycle is repeated until all the functionality is implemented.\cite{b8} The idea of TDD was popularized by Beck\cite{b9} in the Extreme Programming (XP) method. Therefore, although TDD seems to have just recently emerged, it has existed for decades; an early reference to the use of TDD features in the NASA Project Mercury in the 1960s\cite{b10}. 
+Both the literature and practice indicate that the use of
+TDD yields several benefits. Among others, TDD leads to improved test coverage \cite{b8} and simplifies the design by producing loosely coupled and highly cohesive systems
+\cite{b11}. TDD also enables the implementation scope to be more explicit. As a positive side effect, TDD may lead to enhanced job satisfaction and confidence \cite{b11}. Also, larger teams of developers can work on the same code base because of the more frequent integration\cite{b7}.  But, TDD has also been criticized for not
+compensating the lack of up-front design and not being
+very suitable for systems such as security software or
+multithreaded applications, since it cannot mechanically
+demonstrate that their goals have been met\cite{b12}. It is also
+claimed that rapid changes may cause expensive
+breakage in tests and that the lack of application or
+testing skills may produce inadequate test coverage\cite{b13}. However, the scientific empirical evidence behind these
+claims is currently scattered and disorganized, and thus it
+is difficult to draw meaningful conclusions. Moreover,
+studies addressing the impact of TDD on program design
+are currently very rare\cite{b6}.
+The work by Maria Siniaalto and Pekka Abrahamsson states that, The results partially contradict the current literature as the empirical evidence shows that TDD does not improve the program design as expected. In particular, TDD does
+not necessarily produce highly cohesive systems when employed by non-professional developers. However, TDD appears to result in significantly better test coverage than the iterative test-last development. The findings are based on three software development projects, two of which used iterative test-last development and one utilized TDD\cite{b6}.\newline
+Looking at another body of work by B. George and L. Williams, "..we find the definition of TDD as, before writing implementation code, the developer writes automated unit test cases for the new functionality they are about to implement. After writing test cases that generally will not even compile, the developers write implementation code to pass these test cases. The developer writes a few test cases, implements the code, writes a few test cases, implements the code, and so on. The work is kept within the developer’s intellectual control because
+he or she is continuously making small design and implementation
+decisions and increasing functionality at a relatively consistent rate. A new functionality is not considered properly implemented unless these new unit test cases and every other unit test cases ever written for the code base run properly.
+"\cite{c1}
+Maria Siniaalto et al. has compiled results from empirical studies conducted on TDD to evaluate the value of TDD as an engineering practice. In this study, they have looked at the studies of Bhat and Nagappan. They present the results of two
+industrial case studies conducted at Microsoft. They
+compared the impacts of TDD and non-TDD
+development processes on quality and overall
+development time. Their results show that the quality of
+the code developed using TDD increased 2.6–4.2 times
+when compared to non-TDD developed code.
+Alternatively, the project managers estimated that TDD
+increased the overall development time by 15–35 \%. The
+block coverage was 79–88 \% at unit test level in projects
+employing TDD. They also noticed that the tests serve as
+auto documentation when the code was maintained or
+used \cite{c2}. 
 \section{Generative Adversarial Networks (GANs)}
 \subsection{What is a GAN}
 
@@ -374,7 +404,13 @@ The first iteration of the GAN can be formed for simple cases such as basic arit
 Client requirement processing can be extended to include spell and grammar correction to try to form meaningful requirement specifications. Also we can expand the code base of the GAN's neural network so it can form much more complex test cases.
 
 \section{Refined Modular Design}
-The new design of the system is discussed in this section. The model has been expanded and elaborated upon. Now, there are 5 major modules in the system. They are:
+The new design of the system is discussed in this section. We intend to support multiple programming languages in this approach. The model has been expanded and elaborated upon. Now, there are 5 major modules in the system. They are:
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{Complete_high_level_modules.png}
+	\caption{Complete high-level model}
+	\label{fig13}
+\end{figure}
 
 \begin{enumerate}
 	\item \textbf{The POS/tags generator:}
@@ -398,14 +434,46 @@ This module is capable of reading Gherkin files. It will process a single file a
 	\item \textbf{Feature:}
 	Feature is the first keyword that we encounter when processing BDD specs. It is the topic under which the test cases are organized. Following the feature, there are lines describing the overall feature, which is usually used as comments. but we can use it for the deduction of functionality, but we must give it less emphasis as it is used as comments in most cases. It may be possible to discover functional and member bindings within the class through the feature descriptions.
 	\item \textbf{Example/Scenario:}  
-	This is the specification of a scenario, i.e. a BDD test case.
+	This is the specification of a scenario, i.e. a BDD test case. From this section we can extract the name for the test case. Following this section are all of the step definitions, which make up the test case scenario. These will be the major source for the extraction of relationships.
+	\item \textbf{Steps:}
+	These contain the keywords, Given, When, Then, And, But. Given provides the initial setup conditions. The initial step should describe how the initial setup is done with enough clarity to unambiguously decide the classes and methods to call. We have to identify and pass the possible class and method and variable names and their relationship indicating words forward through the system. When represents a disruption within the system, hence it would be a specific input, either it is a certain signal or an object that is passed to the SUT. When is concerned about the output of the SUT. So to facilitate the recognition of these entities, we should pass the text values that would allow for the successful identification of the values for these entities and the ways in which we can capture these values.
+	\item \textbf{Background:}
+	Background is similar to a given statement that spans throughout multiple test cases. So we can treat it similar to the way we would treat a "Given" statement.
+	\item \textbf{Scenario Outline:}
+	The Scenario Outline keyword can be used to run the same Scenario multiple times, with different combinations of values. \ref{fig13} demonstrates an instance where a scenario outline is used \cite{a1}. Here, we can see the test case being parameterized and given multiple values for the input, signal and output values. Our system should be able to identify the parameters and the values associated with them, and pass them forward.
+	\item \textbf{Doc Strings:}
+	The doc string is passed as the last argument of a step definition when it is specified. We have to treat the string as an immutable value and pass it forward through the system.
+	\begin{figure}
+		\includegraphics[width=\linewidth]{Scenario_outline.png}
+		\caption{An example of a scenario outline}
+		\label{fig13}
+	\end{figure}
 \end{itemize}
 
-\begin{figure}
-	\includegraphics[width=\linewidth]{Complete_high_level_modules.png}
-	\caption{Complete high-level model}
-	\label{fig13}
-\end{figure}
+The NLP processing of the Gherkin test cases must preserve the relationships between the entities when generating the output. Since the test case is broken into sections by the Gherkin keywords, we can first split the processing along this separation first. Then given such a statement, we have to break it to possible class, method and value attributes and tag them as such. Then the "Function and Constraint Decider" can attempt to match them  with the existing code base.
+
+\subsection{Entity Graph Generator}
+This module is responsible for parsing the available code base and generating a relationship graph which includes all of the available classes, their methods, inheritance and association relationships. This is created for the use in the "Function and constraint decider". The complexity here is that we are targeting multiple languages. There are two approaches we can take.
+
+\begin{itemize}
+	\item Implementing a system to identify the code from several languages.
+	In this approach, we have to code the module to understand all of the target language's linguistics and thus generate the relationship graph. The module need not be able to distinguish between the languages unless there is a strict need to do so. (Such as, if the code base contains implementations of the same system in multiple languages.) It takes a considerable amount of coding on our part to handle all of the requisite languages.
+	\item Using a neural network based solution. We can have multiple networks for each of the languages. But, in this solution, we need to have enough test scenarios of code and their graph representations to train the network.
+\end{itemize}
+
+\subsection{Function and constraint decider}
+This section takes in the outputs of the previous two sections and tries to map the test case's entities to the entities from the code base graph. A NLP based difference checking between the entities in the test case and the entities in the code base graph. The major problem faced here is how to search for a specific keyword within the entity relationship graph. The solution we shall suggest is a tiered search. The search will start from the module to which the test case belongs. Then it will move to search the other directories.
+We need a similarity measure to decide if there is a match between the BDD entity and the source code entities. Such measures can be,
+
+\begin{enumerate}
+	\item \textbf{A string matcher:} A simple string matcher that matches the class, method names using basic string operations.
+	\item \textbf{An NLP matcher:} A matcher that considers the similarity between the two strings by considering the real life language meanings.
+	\item \textbf{A context based matcher:} A matcher that attempts to match the entities based on descriptions and other relationships contained in the test case.
+\end{enumerate}
+ We opt to choose the last option as it provides the best opportunities for matching. The overall cost of operation for the module will be higher in this case than others and will take longer to find the final result.\newline
+ Also, we will have to verify the decisions we have come up with the users. This is essential to avoid false positives in our search process. Therefore, this module must implement a GUI interface for the clients to interact with the program. The GUI should query the user when there are multiple possible matches or when there appears to be no matching entities to use. The user must be capable of manually resolving these problems. But, our goal is, given that the user, (or rather, the programmer who wrote the code) has followed standard accepted design principles, there will be no need for such disambiguation.\newline
+ Once we have decide on the entities required to generate the test case, we shall pass the details learned to the test case generator.
+ 
 
 \section{Conclusions}
 In the modern software development ecosystem it is imperative to deliver high quality software products to the clients efficiently. TDD and lately, BDD have helped tremendously to achieve these goals. The problem of generating test cases for user specified scenarios using GANs is a novel and a promising one which can help organizations and individuals to develop better code. Here we have outlined a proposal for generating BDD test cases automatically using GANs. We have to specify a target language for the test cases and also provide training data which consists of labeled valid and invalid client requirement specifications and their respective BDD test cases written in the target language. After training, we would be able to generate test cases for valid client requirement specifications using the generative neural network.
@@ -415,10 +483,29 @@ In the modern software development ecosystem it is imperative to deliver high qu
 \bibitem{a2} Sunil Kamalakar, "Automatically Generating Tests from Natural Language Descriptions of Software Behavior" \textit{Thesis submitted to the Faculty of the
 	Virginia Polytechnic Institute and State University
 }
+\bibitem{b6}Siniaalto, Maria \& Abrahamsson, Pekka. "A Comparative Case Study on the Impact of Test-Driven Development on Program Design and Test Coverage". ESEM.2007., 2007, pp. 275 - 284.
+\bibitem{b7}Beck, K., "Test-Driven Development By Example", AddisonWesley,
+Boston, MA, USA, 2003.
+\bibitem{b8}Astels, D., "Test-Driven Development: A Practical Guide",
+Prentice Hall, Upper Saddle River, New Jersey, USA, 2003.
+\bibitem{b9}Beck, K., Extreme Programming Explained, Second Edition:Embrace Change, Addison-Wesley, Boston, MA, USA, 2004.
+\bibitem{b10}G. Larman and V.R. Basili, "Iterative and Incremental Development: A Brief History", IEEE Computer 36(6), IEEE Computer Soc., Los Alamitos, CA, USA, 2003, pp. 47-56.
+\bibitem{b11} K. Beck, "Aim, fire", IEEE Software 18(5), IEEE Computer
+Soc., Los Alamitos, CA, USA, 2001, pp. 87-89.
 \bibitem{b1} I. J. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. C.
 Courville, and Y. Bengio, "Generative adversarial
 nets." In Proceedings of NIPS, pages 2672–
 2680, 2014
+\bibitem{b12}Stephens, M. and D. Rosenberg, "Extreme Programming
+Refactored: The Case Against XP", Apress, Berkeley, CA, USA,
+2003.
+\bibitem{b13}Boehm, B. and R. Turner, Balancing Agility and Discipline
+- A Guide for the Perplexed, Addison-Wesley, Boston, MA,
+USA, 2004.
+\bibitem{c1}B. George, L. Williams, "An Initial Investigation of Test Driven Development in Industry", Proc. ACM Symp. Applied Computing, 2003.
+\bibitem{c2}Bhat, T. and Nagappan, N. Evaluating the efficacy of testdriven
+development: industrial case studies. In ISESE '06, Rio
+de Janeiro, Brazil, 2006.
 \bibitem{b2} J. Gauthier. "Conditional generative adversarial nets for
 convolutional face generation." \textit{Class Project for Stanford
 CS231N: Convolutional Neural Networks for Visual Recognition,
@@ -430,13 +517,6 @@ doi: 10.1109/ISSRE.2003.1251029
 \bibitem{b5} H. Zhang, T. Xu, H. Li, S. Zhang, X. Huang, X. Wang, and D. Metaxas,
 "Stackgan: Text to photo-realistic image synthesis with stacked generative
 adversarial networks," arXiv preprint arXiv:1612.03242, 2016.
-\bibitem{b6}Siniaalto, Maria \& Abrahamsson, Pekka. "A Comparative Case Study on the Impact of Test-Driven Development on Program Design and Test Coverage". ESEM.2007., 2007, pp. 275 - 284.
-\bibitem{b7}Beck, K., "Test-Driven Development By Example", AddisonWesley,
-Boston, MA, USA, 2003.
-\bibitem{b8}Astels, D., "Test-Driven Development: A Practical Guide",
-Prentice Hall, Upper Saddle River, New Jersey, USA, 2003.
-\bibitem{b9}Beck, K., Extreme Programming Explained, Second Edition:Embrace Change, Addison-Wesley, Boston, MA, USA, 2004.
-\bibitem{b10}G. Larman and V.R. Basili, "Iterative and Incremental Development: A Brief History", IEEE Computer 36(6), IEEE Computer Soc., Los Alamitos, CA, USA, 2003, pp. 47-56.
 \end{thebibliography}
 \vspace{12pt}
 
