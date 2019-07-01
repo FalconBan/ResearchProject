@@ -1,0 +1,52 @@
+\contentsline {section}{\numberline {I}Introduction}{5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Feature}{5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-B}}Example}{5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-C}}Steps}{6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-C}1}Given}{6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-C}2}When}{6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-C}3}Then}{6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-C}4}And/But}{6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-C}5}Background}{6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-C}6}Scenario Outline}{7}
+\contentsline {section}{\numberline {II}Motivation}{7}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Making the test writing easy for the developer}{7}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Allowing for greater automation}{7}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Greater adoption of BDD}{7}
+\contentsline {section}{\numberline {III}Literature Review}{8}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Work flow of Kirby}{8}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}User Interface of Kirby}{10}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Work flow of Kirby}{11}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Architecture of Kirby}{11}
+\contentsline {section}{\numberline {IV}Generative Adversarial Networks (GANs)}{12}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}What is a GAN}{12}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Uses of GANs}{13}
+\contentsline {section}{\numberline {V}Modern Software Development}{16}
+\contentsline {section}{\numberline {VI}Test Driven Development: Prelude To BDD}{17}
+\contentsline {section}{\numberline {VII}Behaviour Driven Development (BDD)}{18}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}What is BDD?}{18}
+\contentsline {section}{\numberline {VIII}Generation of tests with from text descriptions}{20}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-A}}Justification}{20}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}}Initial Proposed Model}{20}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}1}The Generative Network}{21}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}2}Validation Network}{22}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}}Types of networks usable}{22}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}1}Recurrent Neural Networks}{22}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}2}On End-to-End Program Generation from User Intention by Deep Neural Networks}{22}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}3}Source Code Generation from User Intention by Using Recurrent Neural Networks}{26}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}4}The Unreasonable Effectiveness of Recurrent Neural Networks}{27}
+\contentsline {section}{\numberline {IX}Methodology}{28}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-A}}The Token Extractor}{30}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}}Language Decider}{32}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}}Entity Graph Generator}{32}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}}Entity Relationship Extractor}{32}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-E}}User Interface}{33}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-F}}Test Code Generator}{33}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-F}1}The Generative Network}{33}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-F}2}The Discriminative Network}{35}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-F}3}Training}{35}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-F}4}After training}{36}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-G}}Plan for operating the system}{36}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-H}}Difference between our system and Kirby}{38}
+\contentsline {section}{\numberline {X}Conclusions}{38}
+\contentsline {section}{References}{38}
+\contentsline {section}{Appendix}{40}
